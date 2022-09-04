@@ -2,6 +2,7 @@
 <hr />
 
 <form [formGroup]="miForm" (ngSubmit)="guardar()">
+  <!-- Region -->
   <div class="row mb-3">
     <div class="col">
       <label class="form-label">Continente:</label>
@@ -13,6 +14,20 @@
       </select>
     </div>
   </div>
+
+  <!-- Paises -->
+  <div class="row mb-3">
+    <div class="col">
+      <label class="form-label">Pais:</label>
+      <select class="form-control" formControlName="pais">
+        <option value="">--Seleccione pais --</option>
+        <option *ngFor="let pais of paises" [value]="pais.name | lowercase">
+          {{ pais.name }}
+        </option>
+      </select>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col">
       <button class="btn btn-sm btn-primary float-end">Seleccionar</button>
